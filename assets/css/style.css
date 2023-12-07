@@ -1,3 +1,5 @@
+
+
 #custom-nav {
     font-size: 2rem;
 }
@@ -10,6 +12,7 @@
     --lighter: #90e0ef ;
     --navlink-color: ;
   }
+
 
   .container {
     max-width: 1600px; 
@@ -53,3 +56,8 @@ h5 {
     font-size: 150%;
     border: 1px solid black;
 }
+
+
+
+
+
