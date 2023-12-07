@@ -11,17 +11,14 @@ function geoAPI(requestURL) {
       return response.json();
     })
     .then(function (data) {
-      console.log([data[0].lat, data[0].lon]);
+      // console.log([data[0].lat, data[0].lon]);
       lat = data[0].lat;
       lon = data[0].lon;
       getApi(lat, lon);
     });
 }
 
-
-geoAPI(geoRequestURL);
-
-var cardEls = document.querySelectorAll(".card-body");
+var cardEls = document.querySelectorAll(".five-forecast");
 var cardP = document.querySelectorAll(".card-text");
 
 
@@ -41,13 +38,13 @@ function getApi() {
       console.log(data);
       console.log(data.list[0].main.temp);
       for (var i = 0; i < 5; i++) {
-        var temp = document.createElement("h3");
-        var wind = document.createElement("h3");
-        var humidity = document.createElement("h3");
+        var temp = document.createElement("p");
+        var wind = document.createElement("p");
+        var humidity = document.createElement("p");
         temp.textContent = data.list[i].main.temp - 273.15;
         wind.textContent = data.list[i].main.humidity + "%";
         humidity.textContent = data.list[i].wind.speed + "km/h";
-
+        console.log(temp);
         cardEls[i].appendChild(temp);
         cardEls[i].appendChild(wind);
         cardEls[i].appendChild(humidity);
