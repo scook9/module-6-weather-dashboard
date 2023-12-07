@@ -5,4 +5,51 @@
 #custom-container {
     padding-right: 20rem;
 }
+:root {
+    --darker: #023e8a;
+    --lighter: #90e0ef ;
+    --navlink-color: ;
+  }
 
+  .container {
+    max-width: 1600px; 
+    margin: 0 auto; 
+    padding: 10px;
+  }
+
+  .form-control {
+    width: 80%;
+  }
+
+  .card {
+    border: 1px solid black; 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px var(--lighter);
+  }
+
+
+.btn-primary {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--darker);
+    color: white;
+    border: 1px solid var(--darker);
+}
+
+.btn-primary:hover {
+    background-color: skyblue;
+    border: 1px solid var(--darker); 
+    
+  }
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px black;
+    padding: auto;
+}
+
+h5 {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: 150%;
+    border: 1px solid black;
+}
