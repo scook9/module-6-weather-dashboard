@@ -28,7 +28,7 @@ function geoAPI(requestURL) {
 
 function getApi() {
   var requestUrl =
-    "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
     "&lon=" +
     lon +
@@ -99,7 +99,7 @@ function addCities() {
       event.preventDefault();
       var cityName = event.target.textContent;
       var geoRequestURL =
-        "http://api.openweathermap.org/geo/1.0/direct?q=" +
+        "https://api.openweathermap.org/geo/1.0/direct?q=" +
         cityName +
         "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
       $(".deletable").remove();
@@ -118,7 +118,7 @@ searchButton.addEventListener("click", function (event) {
 
   var cityText = searchField.value; //set this variable to local storage
   var geoRequestURL =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     cityText +
     "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
   displayedCityEl.textContent = cityText;
