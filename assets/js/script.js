@@ -6,6 +6,8 @@ var cityList = document.querySelector(".list-group");
 var cardEls = document.querySelectorAll(".five-forecast");
 var cardP = document.querySelectorAll(".card-text");
 var cardTitle = document.querySelectorAll(".card-title");
+// var cityBtns = document.querySelectorAll("cityBtn");
+var searchBar = document.querySelector("#keyD");
 
 let lat, lon;
 
@@ -23,7 +25,7 @@ function geoAPI(requestURL) {
     });
 }
 
-// function wich plugs geocodeAPI data into openweatherAPI to fetch weather data for a given location. Then dynamically creates elements to display weather data.
+// function which plugs geocodeAPI data into openweatherAPI to fetch weather data for a given location. Then dynamically creates elements to display weather data.
 
 function getApi() {
   var requestUrl =
@@ -87,19 +89,28 @@ function addCities() {
       "btn-primary",
       "me-md-2",
       "m-1",
-      "deletable"
+      "deletable",
+      "cityBtn",
     );
     cityButton.textContent = cities[i];
     //need to get parent element to append to
     cityList.appendChild(cityButton);
   }
+  cityBtns = $(".cityBtn");
+
+  console.log(cityBtns)
   //set button text to each key
   //append each key to the cities card
 }
 
 //pull local storage cities and create elements with each city text
 //event listener to get weather of a specific city
+//   cityBtns.on("click", function (event) {
+//   event.preventDefault();
+//   var cityName = event.target.textContent;
+//   console.log(cityName);
 
+// });
 //event listener for city search button, additem to local storage
 //need to add second event listener for pressing enter
 searchButton.addEventListener("click", function (event) {
@@ -120,6 +131,12 @@ searchButton.addEventListener("click", function (event) {
   //call function at the end of this to populate city card from local storage
 });
 
+searchBar.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("btn-search").click();
+  }
+});
 // weatherButton.addEventListener("click", function (event) {
 //   event.preventDefault();
 //   console.log("clicked weather button");
