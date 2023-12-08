@@ -10,7 +10,6 @@
 :root {
     --darker: #023e8a;
     --lighter: #90e0ef ;
-    --navlink-color: ;
   }
 
   nav {
@@ -28,16 +27,23 @@
   }
 
   .form-control {
+    margin-left: 0 auto;
     border: 1px solid var(--darker);
-    width: 80%;
+    width: 70%;
+  }
+
+  .btn-search { 
+    margin-left: 0 auto;
+
   }
 
   .card {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 2px solid black; 
+    border: 2px solid var(--darker); 
     border-radius: 5px;
     box-shadow: 0 2px 4px var(--lighter);
   }
@@ -68,7 +74,7 @@ h5 {
     text-shadow: 0 1px 1px slategray;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    font-size: 170%;
+    font-size: 180%;
 }
 
 .five-forecast {
@@ -78,7 +84,7 @@ h5 {
 }
 
 .card-img-top {
-  border: 2px solid var(--darker);
+  border: 1.2px solid var(--darker);
   box-shadow: 0 2px 4px var(--lighter);
   display: block;
   margin-left: auto;
