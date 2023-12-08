@@ -1,10 +1,6 @@
 var searchButton = document.querySelector("#btn-search");
-console.log(searchButton);
+var searchField = document.querySelector(".form-control"); //.value to get text
 var weatherButton = document.querySelector("#btn-main");
-console.log(weatherButton);
-
-var geoRequestURL =
-  "http://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
 
 let lat, lon;
 
@@ -14,7 +10,6 @@ function geoAPI(requestURL) {
       return response.json();
     })
     .then(function (data) {
-      // console.log([data[0].lat, data[0].lon]);
       lat = data[0].lat;
       lon = data[0].lon;
       getApi(lat, lon);
@@ -24,6 +19,10 @@ function geoAPI(requestURL) {
 var cardEls = document.querySelectorAll(".five-forecast");
 var cardP = document.querySelectorAll(".card-text");
 var cardTitle = document.querySelectorAll(".card-title");
+
+console.log(cardEls);
+//var cardElsChildren = cardEls.children; //.getElementsByTagName("p");
+//console.log(cardElsChildren);
 
 function getApi() {
   var requestUrl =
@@ -38,15 +37,18 @@ function getApi() {
     })
     .then(function (data) {
       for (var i = 0; i < 5; i++) {
-        var iconLink = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png"
+        var iconLink =
+          "https://openweathermap.org/img/wn/" +
+          data.list[i].weather[0].icon +
+          ".png";
         var icon = document.createElement("img");
         var temp = document.createElement("p");
         var wind = document.createElement("p");
         var humidity = document.createElement("p");
         var temperature = data.list[i].main.temp - 273.15; //keeps 2 decimal points
-        icon.src = iconLink; 
-        icon.classList.add("card-img-top")
-        temp.textContent = "Temperature: " + temperature.toFixed(2) + " °C";
+        icon.src = iconLink;
+        icon.classList.add("card-img-top");
+        temp.textContent = "Temperature: " + temperature.toFixed(0) + " °C";
         wind.textContent = "Humidity: " + data.list[i].main.humidity + "%";
         humidity.textContent =
           "Wind speed: " + data.list[i].wind.speed + "km/h";
@@ -58,31 +60,39 @@ function getApi() {
     });
 }
 
-geoAPI(geoRequestURL);
-
-//event listener for city search button, additem to local storage
-
-//pull local storage cities and create elements with each city text
-//event listener to get weather of a specific city
-
-searchButton.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("clicked search button");
-});
-
-weatherButton.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("clicked weather button");
-});
+// geoAPI(geoRequestURL);
 
 function addDate() {
   for (var i = 0; i < 5; i++) {
     const a = dayjs();
     const b = a.add(i, "day");
     cardTitle[i].innerText = b.format("MMM D, YYYY");
-    console.log(cardTitle[i]);
-    console.log(b);
   }
 }
 
 addDate();
+
+//event listener for city search button, additem to local storage
+
+//pull local storage cities and create elements with each city text
+//event listener to get weather of a specific city
+
+//event listener for city search button, additem to local storage
+//need to add second event listener for pressing enter
+searchButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("clicked search button");
+  var cityText = searchField.value; //set this variable to local storage
+  var geoRequestURL =
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    cityText +
+    "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
+  localStorage.setItem(cityText, "");
+  geoAPI(geoRequestURL); //change URL to string concatinate with city later
+  //call function at the end of this to populate city card from local storage
+});
+
+weatherButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("clicked weather button");
+});
