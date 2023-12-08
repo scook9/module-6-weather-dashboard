@@ -13,6 +13,13 @@
     --navlink-color: ;
   }
 
+  .card-header m-2{
+  
+}
+
+.card-container .list-group {
+  flex-grow: 1;
+}
 
   .container {
     max-width: 1600px; 
@@ -21,14 +28,32 @@
   }
 
   .form-control {
+    border: 1px solid var(--darker);
     width: 80%;
   }
 
   .card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     border: 1px solid black; 
     border-radius: 5px;
     box-shadow: 0 2px 4px var(--lighter);
   }
+
+  .card-body {
+  
+}
+
+.row {
+  display: flex;
+}
+
+
+.col {
+  margin-bottom: 15px;
+}
 
 
 .btn-primary {
@@ -57,10 +82,20 @@ h5 {
     border: 1px solid black;
 }
 
+.five-forecast {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.five-forecast .card-footer {
+  margin-top: auto;
+}
+
 .card-footer {
   
   background-color: #f8f9fa; 
-  padding: 10px; 
+  padding: 10px;
   text-align: center; 
   border-top: 1px solid #ccc; 
 }
