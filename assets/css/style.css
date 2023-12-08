@@ -13,6 +13,10 @@
     --navlink-color: ;
   }
 
+  nav {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
   .card-header m-2{
   
 }
@@ -24,7 +28,7 @@
   .container {
     max-width: 1600px; 
     margin: 0 auto; 
-    padding: 10px;
+    padding: 5px;
   }
 
   .form-control {
@@ -42,19 +46,13 @@
     box-shadow: 0 2px 4px var(--lighter);
   }
 
-  .card-body {
-  
-}
-
 .row {
   display: flex;
 }
 
-
 .col {
   margin-bottom: 15px;
 }
-
 
 .btn-primary {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -64,7 +62,8 @@
 }
 
 .btn-primary:hover {
-    background-color: skyblue;
+  color: var(--darker);
+    background-color: #caf0f8;
     border: 1px solid var(--darker); 
     
   }
@@ -79,7 +78,8 @@ h5 {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
     font-size: 150%;
-    border: 1px solid black;
+    border: 1px solid var(--darker);
+    border-radius: 2px;
 }
 
 .five-forecast {
@@ -93,8 +93,8 @@ h5 {
 }
 
 .card-footer {
-  
-  background-color: #f8f9fa; 
+  color: var(--darker);
+  background-color: #caf0f8; 
   padding: 10px;
   text-align: center; 
   border-top: 1px solid #ccc; 
