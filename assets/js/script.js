@@ -23,6 +23,7 @@ function geoAPI(requestURL) {
 
 var cardEls = document.querySelectorAll(".five-forecast");
 var cardP = document.querySelectorAll(".card-text");
+var cardTitle = document.querySelectorAll(".card-title");
 
 function getApi() {
   var requestUrl =
@@ -37,14 +38,15 @@ function getApi() {
     })
     .then(function (data) {
       for (var i = 0; i < 5; i++) {
+        console.log(data.list[0].weather[0].icon);
         var temp = document.createElement("p");
         var wind = document.createElement("p");
         var humidity = document.createElement("p");
         var temperature = data.list[i].main.temp - 273.15; //keeps 2 decimal points
-        temp.textContent = temperature.toFixed(2) + " °C";
-        wind.textContent = data.list[i].main.humidity + "%";
-        humidity.textContent = data.list[i].wind.speed + "km/h";
-        console.log(temp);
+        temp.textContent = "Temperature: " + temperature.toFixed(2) + " °C";
+        wind.textContent = "Humidity: " + data.list[i].main.humidity + "%";
+        humidity.textContent =
+          "Wind speed: " + data.list[i].wind.speed + "km/h";
         cardEls[i].appendChild(temp);
         cardEls[i].appendChild(wind);
         cardEls[i].appendChild(humidity);
@@ -68,3 +70,15 @@ weatherButton.addEventListener("click", function (event) {
   event.preventDefault();
   console.log("clicked weather button");
 });
+
+function addDate() {
+  for (var i = 0; i < 5; i++) {
+    const a = dayjs();
+    const b = a.add(i, "day");
+    cardTitle[i].innerText = b.format("MMM D, YYYY");
+    console.log(cardTitle[i]);
+    console.log(b);
+  }
+}
+
+addDate();
