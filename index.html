@@ -13,39 +13,36 @@
   </head>
   <body>
     <nav class="navbar" style="background-color: #e3f2fd;">
-      <div class="container-fluid">
+      <header class="container-fluid">
         <a id="custom-nav" class="navbar-brand" href="#">
           <img src="assets/Sunny-Cloud.png" alt="Logo" width="65" height="50" class="d-inline-block align-text-top"> Weather Dashboard
         </a>
-      </div>
+      </header>
     </nav>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <div class="row align-items-center">
+    <main class="container row">
+        <aside class="col-sm">
+          <article class="row align-items-center">
             <form class="row gy-2 gx-3 align-items-center m-3" role="search">
               <input class="form-control w-35 d-flex justify-content-md-start" type="search" placeholder="Search" aria-label="Search"></input>
               <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                 <button class="btn btn-primary me-md-2" type="button" id="btn-search">Search</button>
               </div>
             </form>
-          </div>
-          <div class="card m-3" style="width: 10rem;">
-            <div class="card-header m-2">
+          </article>
+          <article class="card m-3" style="width: 10rem;">
+            <header class="card-header m-2">
               Current City
-            </div>
+            </header>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">An item</li>
               <li class="list-group-item">A second item</li>
               <li class="list-group-item">A third item</li>
             </ul>
-          </div>
-        </div>
-
-        <div class="col-sm m-5" id="custom-container">
-          <div class="col-md-10 justify-content-start">
-            <div class="card main-forecast">
+          </article>
+        </aside>
+        <section class="col-sm m-5" id="custom-container">
+          <article class="col-md-10 justify-content-start">
+            <figure class="card main-forecast">
               <div class="card-body">
                 <h5 >City</h5>
                 <p class="card-text">This is 1</p>
@@ -54,13 +51,12 @@
                 <p class="card-text">This is 4</p>
                 <a href="#" class="btn btn-primary" id="btn-main">Go somewhere</a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card h-100 five-forecast">
+            </figure>
+          </article>
+        </section>
+        <section class="row row-cols-1 row-cols-md-3 g-4">
+          <article class="col">
+            <figure class="card h-100 five-forecast">
               <img src="" class="card-img-top" alt="">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -68,55 +64,53 @@
               <div class="card-footer">
                 <small class="text-body-secondary">Last updated 3 mins ago</small>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 five-forecast">
+            </figure>
+          </article>
+          <article class="col">
+            <figure class="card h-100 five-forecast">
               <img src="" class="card-img-top" alt="">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-              </div>
-              <div class="card-footer">
+              </figure>
+              <figure class="card-footer">
                 <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 five-forecast">
-              <img src="" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 five-forecast">
-              <img src="" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 five-forecast">
-              <img src="" class="card-img-top" alt="">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </figure>
+            </article>
+            <article class="col">
+              <figure class="card h-100 five-forecast">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </figure>
+            </article>
+            <article class="col">
+              <figure class="card h-100 five-forecast">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </figure>
+            </article>
+            <article class="col">
+              <figure class="card h-100 five-forecast">
+                <img src="" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </figure>
+            </article>
+        </section>
+    </main>
 
 
     <script src="assets/jquery/jquery.js"></script>
