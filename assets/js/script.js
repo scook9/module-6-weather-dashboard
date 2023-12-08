@@ -20,10 +20,6 @@ var cardEls = document.querySelectorAll(".five-forecast");
 var cardP = document.querySelectorAll(".card-text");
 var cardTitle = document.querySelectorAll(".card-title");
 
-console.log(cardEls);
-//var cardElsChildren = cardEls.children; //.getElementsByTagName("p");
-//console.log(cardElsChildren);
-
 function getApi() {
   var requestUrl =
     "http://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -48,10 +44,14 @@ function getApi() {
         var temperature = data.list[i].main.temp - 273.15; //keeps 2 decimal points
         icon.src = iconLink;
         icon.classList.add("card-img-top");
+        icon.classList.add("deletable");
         temp.textContent = "Temperature: " + temperature.toFixed(0) + " °C";
+        temp.classList.add("deletable");
         wind.textContent = "Humidity: " + data.list[i].main.humidity + "%";
+        wind.classList.add("deletable");
         humidity.textContent =
           "Wind speed: " + data.list[i].wind.speed + "km/h";
+        humidity.classList.add("deletable");
         cardEls[i].appendChild(icon);
         cardEls[i].appendChild(temp);
         cardEls[i].appendChild(wind);
@@ -59,8 +59,6 @@ function getApi() {
       }
     });
 }
-
-// geoAPI(geoRequestURL);
 
 function addDate() {
   for (var i = 0; i < 5; i++) {
@@ -71,8 +69,6 @@ function addDate() {
 }
 
 addDate();
-
-//event listener for city search button, additem to local storage
 
 //pull local storage cities and create elements with each city text
 //event listener to get weather of a specific city
@@ -88,6 +84,10 @@ searchButton.addEventListener("click", function (event) {
     cityText +
     "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
   localStorage.setItem(cityText, "");
+
+  //remove all elements with "deletable" class
+  $(".deletable").remove();
+
   geoAPI(geoRequestURL); //change URL to string concatinate with city later
   //call function at the end of this to populate city card from local storage
 });
