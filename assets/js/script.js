@@ -1,8 +1,15 @@
+// variable declorations
+
 var searchButton = document.querySelector("#btn-search");
 var searchField = document.querySelector(".form-control");
 var cityList = document.querySelector(".list-group");
+var cardEls = document.querySelectorAll(".five-forecast");
+var cardP = document.querySelectorAll(".card-text");
+var cardTitle = document.querySelectorAll(".card-title");
 
 let lat, lon;
+
+// function to fetch latitude and longitude from geocodeAPI
 
 function geoAPI(requestURL) {
   fetch(requestURL)
@@ -16,9 +23,7 @@ function geoAPI(requestURL) {
     });
 }
 
-var cardEls = document.querySelectorAll(".five-forecast");
-var cardP = document.querySelectorAll(".card-text");
-var cardTitle = document.querySelectorAll(".card-title");
+// function wich plugs geocodeAPI data into openweatherAPI to fetch weather data for a given location. Then dynamically creates elements to display weather data.
 
 function getApi() {
   var requestUrl =
@@ -61,6 +66,8 @@ function getApi() {
     });
 }
 
+// uses the dayJs library to give the forecast cards proper date titles.
+
 function addDate() {
   for (var i = 0; i < 5; i++) {
     const a = dayjs();
@@ -68,8 +75,6 @@ function addDate() {
     cardTitle[i].innerText = b.format("MMM D, YYYY");
   }
 }
-
-addDate();
 
 function addCities() {
   //get stored keys/cities
@@ -91,8 +96,6 @@ function addCities() {
   //set button text to each key
   //append each key to the cities card
 }
-
-addCities();
 
 //pull local storage cities and create elements with each city text
 //event listener to get weather of a specific city
@@ -121,3 +124,6 @@ searchButton.addEventListener("click", function (event) {
 //   event.preventDefault();
 //   console.log("clicked weather button");
 // });
+
+addCities();
+addDate();
