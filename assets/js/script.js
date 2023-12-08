@@ -79,6 +79,8 @@ function addDate() {
 }
 
 function addCities() {
+
+  cityList.innerHTML = '';
   //get stored keys/cities
   var cities = Object.keys(localStorage);
   //create button elements
@@ -95,6 +97,17 @@ function addCities() {
     cityButton.textContent = cities[i];
     //need to get parent element to append to
     cityList.appendChild(cityButton);
+    cityButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      var cityName = event.target.textContent;
+      var geoRequestURL =
+        "http://api.openweathermap.org/geo/1.0/direct?q=" +
+        cityName +
+        "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
+      $(".deletable").remove();
+      addCities()
+      geoAPI(geoRequestURL);
+    });
   }
   cityBtns = $(".cityBtn");
 
