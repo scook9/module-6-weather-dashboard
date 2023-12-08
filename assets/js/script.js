@@ -1,6 +1,6 @@
 var searchButton = document.querySelector("#btn-search");
-var searchField = document.querySelector(".form-control"); //.value to get text
-var weatherButton = document.querySelector("#btn-main");
+var searchField = document.querySelector(".form-control");
+var cityList = document.querySelector(".list-group");
 
 let lat, lon;
 
@@ -69,7 +69,7 @@ function addDate() {
   }
 }
 
-console.log(Object.keys(localStorage));
+addDate();
 
 function addCities() {
   //get stored keys/cities
@@ -77,14 +77,22 @@ function addCities() {
   //create button elements
   for (i = 0; i < cities.length; i++) {
     var cityButton = document.createElement("button");
+    cityButton.classList.add(
+      "btn",
+      "btn-primary",
+      "me-md-2",
+      "m-1",
+      "deletable"
+    );
     cityButton.textContent = cities[i];
     //need to get parent element to append to
+    cityList.appendChild(cityButton);
   }
   //set button text to each key
   //append each key to the cities card
 }
 
-addDate();
+addCities();
 
 //pull local storage cities and create elements with each city text
 //event listener to get weather of a specific city
@@ -104,11 +112,12 @@ searchButton.addEventListener("click", function (event) {
   //remove all elements with "deletable" class
   $(".deletable").remove();
 
+  addCities();
   geoAPI(geoRequestURL); //change URL to string concatinate with city later
   //call function at the end of this to populate city card from local storage
 });
 
-weatherButton.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("clicked weather button");
-});
+// weatherButton.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   console.log("clicked weather button");
+// });
