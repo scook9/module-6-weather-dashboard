@@ -64,19 +64,11 @@
     
   }
 
-p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border: 2px black;
-    padding: auto;
-}
-
 h5 {
     text-shadow: 0 1px 1px slategray;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    font-size: 150%;
-    border: 1px solid var(--darker);
-    border-radius: 2px;
+    font-size: 170%;
 }
 
 .five-forecast {
@@ -92,7 +84,7 @@ h5 {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
-  border-radius: 80px;
+  border-radius: 50px;
 }
 
 
