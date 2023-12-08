@@ -71,7 +71,7 @@
   }
 
 h5 {
-    text-shadow: 0 1px 1px slategray;
+    text-shadow: 0 1.2px 1.2px var(--lighter);
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
     font-size: 180%;
