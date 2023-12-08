@@ -4,10 +4,9 @@ var searchButton = document.querySelector("#btn-search");
 var searchField = document.querySelector(".form-control");
 var cityList = document.querySelector(".list-group");
 var cardEls = document.querySelectorAll(".five-forecast");
-var cardP = document.querySelectorAll(".card-text");
 var cardTitle = document.querySelectorAll(".card-title");
-// var cityBtns = document.querySelectorAll("cityBtn");
 var searchBar = document.querySelector("#keyD");
+var displayedCityEl = document.querySelector(".main-forecast");
 
 let lat, lon;
 
@@ -79,8 +78,7 @@ function addDate() {
 }
 
 function addCities() {
-
-  cityList.innerHTML = '';
+  cityList.innerHTML = "";
   //get stored keys/cities
   var cities = Object.keys(localStorage);
   //create button elements
@@ -92,7 +90,7 @@ function addCities() {
       "me-md-2",
       "m-1",
       "deletable",
-      "cityBtn",
+      "cityBtn"
     );
     cityButton.textContent = cities[i];
     //need to get parent element to append to
@@ -105,35 +103,25 @@ function addCities() {
         cityName +
         "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
       $(".deletable").remove();
-      addCities()
+      displayedCityEl.textContent = cityName;
+      addCities();
       geoAPI(geoRequestURL);
     });
   }
   cityBtns = $(".cityBtn");
-
-  console.log(cityBtns)
-  //set button text to each key
-  //append each key to the cities card
 }
 
-//pull local storage cities and create elements with each city text
-//event listener to get weather of a specific city
-//   cityBtns.on("click", function (event) {
-//   event.preventDefault();
-//   var cityName = event.target.textContent;
-//   console.log(cityName);
-
-// });
 //event listener for city search button, additem to local storage
 //need to add second event listener for pressing enter
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
-  console.log("clicked search button");
+
   var cityText = searchField.value; //set this variable to local storage
   var geoRequestURL =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
     cityText +
     "&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
+  displayedCityEl.textContent = cityText;
   localStorage.setItem(cityText, "");
 
   //remove all elements with "deletable" class
@@ -141,19 +129,14 @@ searchButton.addEventListener("click", function (event) {
 
   addCities();
   geoAPI(geoRequestURL); //change URL to string concatinate with city later
-  //call function at the end of this to populate city card from local storage
 });
 
-searchBar.addEventListener("keypress", function(event) {
+searchBar.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     document.getElementById("btn-search").click();
   }
 });
-// weatherButton.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   console.log("clicked weather button");
-// });
 
 addCities();
 addDate();
