@@ -1,3 +1,8 @@
+var searchButton = document.querySelector("#btn-search");
+console.log(searchButton);
+var weatherButton = document.querySelector("#btn-main");
+console.log(weatherButton);
+
 var geoRequestURL =
   "http://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=eaac46d313d2d3a242b8a4c157387c36";
 
@@ -53,3 +58,13 @@ geoAPI(geoRequestURL);
 
 //pull local storage cities and create elements with each city text
 //event listener to get weather of a specific city
+
+searchButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("clicked search button");
+});
+
+weatherButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("clicked weather button");
+});
