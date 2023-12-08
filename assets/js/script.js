@@ -39,14 +39,21 @@ function getApi() {
     .then(function (data) {
       for (var i = 0; i < 5; i++) {
         console.log(data.list[0].weather[0].icon);
+        var iconLink = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + "@2x.png"
+        console.log(iconLink)
+        var icon = document.createElement("img");
         var temp = document.createElement("p");
         var wind = document.createElement("p");
         var humidity = document.createElement("p");
         var temperature = data.list[i].main.temp - 273.15; //keeps 2 decimal points
+        console.log(icon);
+        icon.src = iconLink; 
+        console.log(icon);
         temp.textContent = "Temperature: " + temperature.toFixed(2) + " °C";
         wind.textContent = "Humidity: " + data.list[i].main.humidity + "%";
         humidity.textContent =
           "Wind speed: " + data.list[i].wind.speed + "km/h";
+        cardEls[i].appendChild(icon);
         cardEls[i].appendChild(temp);
         cardEls[i].appendChild(wind);
         cardEls[i].appendChild(humidity);
