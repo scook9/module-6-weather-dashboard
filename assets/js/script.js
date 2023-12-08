@@ -41,11 +41,12 @@ function getApi() {
         var temp = document.createElement("p");
         var wind = document.createElement("p");
         var humidity = document.createElement("p");
-        var temperature = data.list[i].main.temp - 273.15; //keeps 2 decimal points
+        var temperature = (data.list[i].main.temp - 273.15) * 1.8 + 32; //K to °F
         icon.src = iconLink;
         icon.classList.add("card-img-top");
         icon.classList.add("deletable");
-        temp.textContent = "Temperature: " + temperature.toFixed(0) + " °C";
+        icon.classList.add("card-image");
+        temp.textContent = "Temperature: " + temperature.toFixed(0) + " °F";
         temp.classList.add("deletable");
         wind.textContent = "Humidity: " + data.list[i].main.humidity + "%";
         wind.classList.add("deletable");
@@ -66,6 +67,21 @@ function addDate() {
     const b = a.add(i, "day");
     cardTitle[i].innerText = b.format("MMM D, YYYY");
   }
+}
+
+console.log(Object.keys(localStorage));
+
+function addCities() {
+  //get stored keys/cities
+  var cities = Object.keys(localStorage);
+  //create button elements
+  for (i = 0; i < cities.length; i++) {
+    var cityButton = document.createElement("button");
+    cityButton.textContent = cities[i];
+    //need to get parent element to append to
+  }
+  //set button text to each key
+  //append each key to the cities card
 }
 
 addDate();
