@@ -77,6 +77,8 @@ function addDate() {
   }
 }
 
+// adds cities to the card containers
+
 function addCities() {
   cityList.innerHTML = "";
   //get stored keys/cities
@@ -112,7 +114,6 @@ function addCities() {
 }
 
 //event listener for city search button, additem to local storage
-//need to add second event listener for pressing enter
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
 

@@ -12,6 +12,7 @@
       crossorigin="anonymous"></script>
   </head>
   <body>
+    <!-- navbar section -->
     <nav class="navbar" style="background-color: #caf0f8;">
       <header class="container-fluid">
         <a id="custom-nav" class="navbar-brand" href="#">
@@ -20,6 +21,7 @@
       </header>
     </nav>
     <main class="container row">
+      <!-- aside section wich contains searchbar, and recently searched city buttons -->
         <aside class="col-sm">
           <article class="row align-items-center">
             <form id="keyD" class="row gy-2 gx-3 align-items-center m-3" role="search">
@@ -34,6 +36,7 @@
             </ul>
           </article>
         </aside>
+        <!-- section wich diaplays the current city being displayed -->
         <section class="col-sm m-5" id="custom-container">
           <article class="col-md-10 justify-content-start">
             <figure class="card main-forecast city-name">
@@ -41,6 +44,7 @@
             </figure>
           </article>
         </section>
+        <!-- main content section, includes cards containing the forecasted weather of the next 5 days -->
         <section class="row row-cols-1 row-cols-md-3 g-4">
           <article class="col">
             <figure class="card h-100 five-forecast">
