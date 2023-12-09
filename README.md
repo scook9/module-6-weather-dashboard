@@ -14,7 +14,11 @@ this project runs as a web application which can be accessed through any standar
 
 the user searches for a city and is present with with the current and future weather conditions for that city, which is organized by city name, the date, and visual icon indicators for which type of weather is or will occur. the user is then able to search a different city, while the pervious information is saved and can be accessed by clicking back on the city saved in the search history.
 
-link to deployed website:
+## link to deployed website:
+
+https://scook9.github.io/module-6-weather-dashboard/
+
+## deployed screenshot:
 
 ![screenshot of web function](./assets/webpageCapture.png/)
 
